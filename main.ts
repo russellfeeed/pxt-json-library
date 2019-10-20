@@ -1,7 +1,7 @@
-basic.showLeds(`
-    . . . . .
-    . # . # .
-    . . . . .
-    # . . . #
-    . # # # .
-    `);
+namespace jsonLibrary {
+
+    //% block
+    export function WriteJSON() {
+
+    }
+}
