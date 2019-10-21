@@ -72,7 +72,9 @@ namespace jsonBlocks {
     class StringReference {
         stringx: string[];
     }
-    function IsValidJSON(json: string[], errorMessage: StringArrayReference): boolean {
+
+    //% block
+    export function IsValidJSON(json: string[], errorMessage: StringArrayReference): boolean {
         let success: boolean;
         let elementReference: ElementReference;
 
@@ -1238,8 +1240,8 @@ namespace jsonBlocks {
         strWriteStringToStingStream(result, index, "}".split(''));
     }
 
-
-    function ReadJSON(stringx: string[], elementReference: ElementReference, errorMessages: StringArrayReference): boolean {
+    //% block
+    export function ReadJSON(stringx: string[], elementReference: ElementReference, errorMessages: StringArrayReference): boolean {
         let tokenArrayReference: TokenArrayReference;
         let success: boolean;
 
