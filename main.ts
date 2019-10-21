@@ -73,8 +73,8 @@ namespace jsonBlocks {
         stringx: string[];
     }
     function IsValidJSON(json: string[], errorMessage: StringArrayReference): boolean {
-        var success: boolean;
-        var elementReference: ElementReference;
+        let success: boolean;
+        let elementReference: ElementReference;
 
         elementReference = new ElementReference();
 
@@ -89,8 +89,8 @@ namespace jsonBlocks {
 
 
     function JSONTokenize(stringx: string[], tokenArrayReference: TokenArrayReference, errorMessages: StringArrayReference): boolean {
-        var count: NumberReference;
-        var success: boolean;
+        let count: NumberReference;
+        let success: boolean;
 
         count = CreateNumberReference(0);
         success = JSONTokenizeWithCountOption(stringx, tokenArrayReference, count, false, errorMessages);
@@ -105,15 +105,15 @@ namespace jsonBlocks {
 
 
     function JSONTokenizeWithCountOption(json: string[], tokenArrayReference: TokenArrayReference, countReference: NumberReference, add: boolean, errorMessages: StringArrayReference): boolean {
-        var tokens: Token[];
-        var i: number, t: number;
-        var c: string;
-        var numberToken: Token;
-        var str: string[];
-        var stringReference: StringReference;
-        var tokenReference: TokenReference;
-        var stringLength: NumberReference;
-        var success: boolean;
+        let tokens: Token[];
+        let i: number, t: number;
+        let c: string;
+        let numberToken: Token;
+        let str: string[];
+        let stringReference: StringReference;
+        let tokenReference: TokenReference;
+        let stringLength: NumberReference;
+        let success: boolean;
 
         success = true;
 
@@ -262,10 +262,10 @@ namespace jsonBlocks {
 
 
     function GetJSONNumberToken(json: string[], start: number, tokenReference: TokenReference, errorMessages: StringArrayReference): boolean {
-        var c: string;
-        var end: number, i: number;
-        var done: boolean, success: boolean;
-        var numberString: string[];
+        let c: string;
+        let end: number, i: number;
+        let done: boolean, success: boolean;
+        let numberString: string[];
 
         end = json.length;
         done = false;
@@ -289,8 +289,8 @@ namespace jsonBlocks {
 
 
     function IsValidJSONNumber(n: string[], errorMessages: StringArrayReference): boolean {
-        var success: boolean;
-        var i: number;
+        let success: boolean;
+        let i: number;
 
         i = 0;
 
@@ -311,7 +311,7 @@ namespace jsonBlocks {
 
 
     function IsValidJSONNumberAfterSign(n: string[], i: number, errorMessages: StringArrayReference): boolean {
-        var success: boolean;
+        let success: boolean;
 
         if (charIsNumber(n[i])) {
             /* 0 first means only 0.*/
@@ -338,7 +338,7 @@ namespace jsonBlocks {
 
 
     function IsValidJSONNumberAdvancePastDigits(n: string[], i: number): number {
-        var done: boolean;
+        let done: boolean;
 
         i = i + 1;
         done = false;
@@ -355,7 +355,7 @@ namespace jsonBlocks {
 
 
     function IsValidJSONNumberFromDotOrExponent(n: string[], i: number, errorMessages: StringArrayReference): boolean {
-        var wasDotAndOrE: boolean, success: boolean;
+        let wasDotAndOrE: boolean, success: boolean;
 
         wasDotAndOrE = false;
         success = true;
@@ -410,7 +410,7 @@ namespace jsonBlocks {
 
 
     function IsValidJSONNumberFromExponent(n: string[], i: number, errorMessages: StringArrayReference): boolean {
-        var success: boolean;
+        let success: boolean;
 
         i = i + 1;
 
@@ -450,9 +450,9 @@ namespace jsonBlocks {
 
 
     function IsJSONNumberCharacter(c: string): boolean {
-        var numericCharacters: string[];
-        var found: boolean;
-        var i: number;
+        let numericCharacters: string[];
+        let found: boolean;
+        let i: number;
 
         numericCharacters = "0123456789.-+eE".split('');
 
@@ -469,11 +469,11 @@ namespace jsonBlocks {
 
 
     function GetJSONPrimitiveName(stringx: string[], start: number, errorMessages: StringArrayReference, primitive: string[], tokenReference: TokenReference): boolean {
-        var c: string, p: string;
-        var token: Token;
-        var done: boolean, success: boolean;
-        var i: number;
-        var str: string[];
+        let c: string, p: string;
+        let token: Token;
+        let done: boolean, success: boolean;
+        let i: number;
+        let str: string[];
 
         token = new Token();
         done = false;
@@ -522,11 +522,11 @@ namespace jsonBlocks {
 
 
     function GetJSONString(json: string[], start: number, tokenReference: TokenReference, stringLengthReference: NumberReference, errorMessages: StringArrayReference): boolean {
-        var success: boolean, done: boolean;
-        var stringx: string[], hex: string[];
-        var characterCount: NumberReference, hexReference: NumberReference;
-        var i: number, l: number, c: number;
-        var errorMessage: StringReference;
+        let success: boolean, done: boolean;
+        let stringx: string[], hex: string[];
+        let characterCount: NumberReference, hexReference: NumberReference;
+        let i: number, l: number, c: number;
+        let errorMessage: StringReference;
 
         characterCount = CreateNumberReference(0);
         hex = CreateString(4, '0');
@@ -598,8 +598,8 @@ namespace jsonBlocks {
 
 
     function IsValidJSONString(jsonString: string[], errorMessages: StringArrayReference): boolean {
-        var valid: boolean;
-        var numberReference: NumberReference, stringLength: NumberReference;
+        let valid: boolean;
+        let numberReference: NumberReference, stringLength: NumberReference;
 
         numberReference = new NumberReference();
         stringLength = new NumberReference();
@@ -611,9 +611,9 @@ namespace jsonBlocks {
 
 
     function IsValidJSONStringInJSON(json: string[], start: number, characterCount: NumberReference, stringLengthReference: NumberReference, errorMessages: StringArrayReference): boolean {
-        var success: boolean, done: boolean;
-        var i: number, j: number;
-        var c: string;
+        let success: boolean, done: boolean;
+        let i: number, j: number;
+        let c: string;
 
         success = true;
         done = false;
@@ -675,8 +675,8 @@ namespace jsonBlocks {
 
 
     function IsJSONIllegalControllCharacter(c: string): boolean {
-        var cnr: number;
-        var isControll: boolean;
+        let cnr: number;
+        let isControll: boolean;
 
         cnr = c.charCodeAt(0);
 
@@ -691,7 +691,7 @@ namespace jsonBlocks {
 
 
     function CreateToken(tokenType: TokenType): Token {
-        var token: Token;
+        let token: Token;
         token = new Token();
         token.typex = tokenType;
         return token;
@@ -699,7 +699,7 @@ namespace jsonBlocks {
 
 
     function CreateStringToken(stringx: string[]): Token {
-        var token: Token;
+        let token: Token;
         token = new Token();
         token.typex = GetTokenType("string".split(''));
         token.value = stringx;
@@ -708,7 +708,7 @@ namespace jsonBlocks {
 
 
     function CreateNumberToken(stringx: string[]): Token {
-        var token: Token;
+        let token: Token;
         token = new Token();
         token.typex = GetTokenType("number".split(''));
         token.value = stringx;
@@ -717,8 +717,8 @@ namespace jsonBlocks {
 
 
     function AddElement(list: Elementx[], a: Elementx): Elementx[] {
-        var newlist: Elementx[];
-        var i: number;
+        let newlist: Elementx[];
+        let i: number;
 
         newlist = [];
 
@@ -739,8 +739,8 @@ namespace jsonBlocks {
 
 
     function RemoveElement(list: Elementx[], n: number): Elementx[] {
-        var newlist: Elementx[];
-        var i: number;
+        let newlist: Elementx[];
+        let i: number;
 
         newlist = [];
 
@@ -770,7 +770,7 @@ namespace jsonBlocks {
 
 
     function ComputeJSONStringLength(element: Elementx): number {
-        var result: number;
+        let result: number;
 
         result = 0;
 
@@ -793,7 +793,7 @@ namespace jsonBlocks {
 
 
     function ComputeJSONBooleanStringLength(element: Elementx): number {
-        var result: number;
+        let result: number;
 
         if (element.booleanValue) {
             result = "true".split('').length;
@@ -806,8 +806,8 @@ namespace jsonBlocks {
 
 
     function ComputeJSONNumberStringLength(element: Elementx): number {
-        var length: number;
-        var a: string[];
+        let length: number;
+        let a: string[];
 
         if (Math.abs(element.numberx) >= 10 ** 15 || Math.abs(element.numberx) <= 10 ** (-15)) {
             a = nCreateStringScientificNotationDecimalFromNumber(element.numberx);
@@ -822,9 +822,9 @@ namespace jsonBlocks {
 
 
     function ComputeJSONArrayStringLength(element: Elementx): number {
-        var arrayElement: Elementx;
-        var i: number;
-        var length: number;
+        let arrayElement: Elementx;
+        let i: number;
+        let length: number;
 
         length = 1;
 
@@ -845,11 +845,11 @@ namespace jsonBlocks {
 
 
     function ComputeJSONObjectStringLength(element: Elementx): number {
-        var key: string[];
-        var i: number;
-        var keys: StringArrayReference;
-        var objectElement: Elementx;
-        var length: number;
+        let key: string[];
+        let i: number;
+        let keys: StringArrayReference;
+        let objectElement: Elementx;
+        let length: number;
 
         length = 1;
 
@@ -877,7 +877,7 @@ namespace jsonBlocks {
 
 
     function CreateStringElement(stringx: string[]): Elementx {
-        var element: Elementx;
+        let element: Elementx;
         element = new Elementx();
         element.typex = GetElementType("string".split(''));
         element.stringx = stringx;
@@ -886,7 +886,7 @@ namespace jsonBlocks {
 
 
     function CreateBooleanElement(booleanValue: boolean): Elementx {
-        var element: Elementx;
+        let element: Elementx;
         element = new Elementx();
         element.typex = GetElementType("booleanValue".split(''));
         element.booleanValue = booleanValue;
@@ -895,7 +895,7 @@ namespace jsonBlocks {
 
 
     function CreateNullElement(): Elementx {
-        var element: Elementx;
+        let element: Elementx;
         element = new Elementx();
         element.typex = GetElementType("nullValue".split(''));
         return element;
@@ -903,7 +903,7 @@ namespace jsonBlocks {
 
 
     function CreateNumberElement(numberx: number): Elementx {
-        var element: Elementx;
+        let element: Elementx;
         element = new Elementx();
         element.typex = GetElementType("number".split(''));
         element.numberx = numberx;
@@ -912,7 +912,7 @@ namespace jsonBlocks {
 
 
     function CreateArrayElement(length: number): Elementx {
-        var element: Elementx;
+        let element: Elementx;
         element = new Elementx();
         element.typex = GetElementType("array".split(''));
         element.array = [];
@@ -921,7 +921,7 @@ namespace jsonBlocks {
 
 
     function CreateObjectElement(length: number): Elementx {
-        var element: Elementx;
+        let element: Elementx;
         element = new Elementx();
         element.typex = GetElementType("object".split(''));
         element.object = new StringElementMap();
@@ -952,10 +952,10 @@ namespace jsonBlocks {
 
 
     function DeleteObject(element: Elementx): void {
-        var keys: StringArrayReference;
-        var i: number;
-        var key: string[];
-        var objectElement: Elementx;
+        let keys: StringArrayReference;
+        let i: number;
+        let key: string[];
+        let objectElement: Elementx;
 
         keys = GetStringElementMapKeySet(element.object);
         for (i = 0; i < keys.stringArray.length; i = i + 1) {
@@ -967,8 +967,8 @@ namespace jsonBlocks {
 
 
     function DeleteArray(element: Elementx): void {
-        var i: number;
-        var arrayElement: Elementx;
+        let i: number;
+        let arrayElement: Elementx;
 
         for (i = 0; i < element.array.length; i = i + 1) {
             arrayElement = element.array[i];
@@ -978,9 +978,9 @@ namespace jsonBlocks {
 
     //% block
     export function WriteJSON(element: Elementx): string[] {
-        var result: string[];
-        var length: number;
-        var index: NumberReference;
+        let result: string[];
+        let length: number;
+        let index: NumberReference;
 
         length = ComputeJSONStringLength(element);
         //		result = [];
@@ -1015,7 +1015,7 @@ namespace jsonBlocks {
 
 
     function WriteNumber(element: Elementx, result: string[], index: NumberReference): void {
-        var numberString: string[];
+        let numberString: string[];
 
         if (Math.abs(element.numberx) >= 10 ** 15 || Math.abs(element.numberx) <= 10 ** (-15)) {
             numberString = nCreateStringScientificNotationDecimalFromNumber(element.numberx);
@@ -1028,9 +1028,9 @@ namespace jsonBlocks {
 
 
     function WriteArray(element: Elementx, result: string[], index: NumberReference): void {
-        var s: string[];
-        var arrayElement: Elementx;
-        var i: number;
+        let s: string[];
+        let arrayElement: Elementx;
+        let i: number;
 
         strWriteStringToStingStream(result, index, "[".split(''));
 
@@ -1058,9 +1058,9 @@ namespace jsonBlocks {
 
 
     function JSONEscapeString(stringx: string[]): string[] {
-        var i: number, length: number;
-        var index: NumberReference, lettersReference: NumberReference;
-        var ns: string[], escaped: string[];
+        let i: number, length: number;
+        let index: NumberReference, lettersReference: NumberReference;
+        let ns: string[], escaped: string[];
 
         length = JSONEscapedStringLength(stringx);
 
@@ -1083,8 +1083,8 @@ namespace jsonBlocks {
 
 
     function JSONEscapedStringLength(stringx: string[]): number {
-        var lettersReference: NumberReference;
-        var i: number, length: number;
+        let lettersReference: NumberReference;
+        let i: number, length: number;
 
         lettersReference = CreateNumberReference(0);
         length = 0;
@@ -1101,10 +1101,10 @@ namespace jsonBlocks {
 
 
     function JSONEscapeCharacter(c: string): string[] {
-        var code: number;
-        var escaped: string[];
-        var hexNumber: StringReference;
-        var q: number, rs: number, s: number, b: number, f: number, n: number, r: number, t: number;
+        let code: number;
+        let escaped: string[];
+        let hexNumber: StringReference;
+        let q: number, rs: number, s: number, b: number, f: number, n: number, r: number, t: number;
 
         code = c.charCodeAt(0);
 
@@ -1177,9 +1177,9 @@ namespace jsonBlocks {
 
 
     function JSONMustBeEscaped(c: string, letters: NumberReference): boolean {
-        var code: number;
-        var mustBeEscaped: boolean;
-        var q: number, rs: number, s: number, b: number, f: number, n: number, r: number, t: number;
+        let code: number;
+        let mustBeEscaped: boolean;
+        let q: number, rs: number, s: number, b: number, f: number, n: number, r: number, t: number;
 
         code = c.charCodeAt(0);
         mustBeEscaped = false;
@@ -1209,10 +1209,10 @@ namespace jsonBlocks {
 
 
     function WriteObject(element: Elementx, result: string[], index: NumberReference): void {
-        var s: string[], key: string[];
-        var i: number;
-        var keys: StringArrayReference;
-        var objectElement: Elementx;
+        let s: string[], key: string[];
+        let i: number;
+        let keys: StringArrayReference;
+        let objectElement: Elementx;
 
         strWriteStringToStingStream(result, index, "{".split(''));
 
@@ -1240,8 +1240,8 @@ namespace jsonBlocks {
 
 
     function ReadJSON(stringx: string[], elementReference: ElementReference, errorMessages: StringArrayReference): boolean {
-        var tokenArrayReference: TokenArrayReference;
-        var success: boolean;
+        let tokenArrayReference: TokenArrayReference;
+        let success: boolean;
 
         /* Tokenize.*/
         tokenArrayReference = new TokenArrayReference();
@@ -1257,9 +1257,9 @@ namespace jsonBlocks {
 
 
     function GetJSONValue(tokens: Token[], elementReference: ElementReference, errorMessages: StringArrayReference): boolean {
-        var counts: NumberArrayReference;
-        var success: boolean;
-        var i: NumberReference;
+        let counts: NumberArrayReference;
+        let success: boolean;
+        let i: NumberReference;
 
         i = CreateNumberReference(0);
         counts = CreateNumberArrayReferenceLengthValue(tokens.length, 0);
@@ -1276,10 +1276,10 @@ namespace jsonBlocks {
 
 
     function GetJSONValueWithCheckOption(tokens: Token[], i: NumberReference, depth: number, elementReference: ElementReference, add: boolean, counts: NumberArrayReference, errorMessages: StringArrayReference): boolean {
-        var token: Token;
-        var str: string[], substr: string[];
-        var stringToDecimalResult: number;
-        var success: boolean;
+        let token: Token;
+        let str: string[], substr: string[];
+        let stringToDecimalResult: number;
+        let success: boolean;
 
         success = true;
         token = tokens[i.numberValue];
@@ -1336,12 +1336,12 @@ namespace jsonBlocks {
 
 
     function GetJSONObject(tokens: Token[], i: NumberReference, depth: number, elementReference: ElementReference, add: boolean, counts: NumberArrayReference, errorMessages: StringArrayReference): boolean {
-        var element: Elementx, value: Elementx;
-        var done: boolean, success: boolean;
-        var key: Token, colon: Token, comma: Token, closeCurly: Token;
-        var keystring: string[], str: string[];
-        var valueReference: ElementReference;
-        var countIndex: number, index: number;
+        let element: Elementx, value: Elementx;
+        let done: boolean, success: boolean;
+        let key: Token, colon: Token, comma: Token, closeCurly: Token;
+        let keystring: string[], str: string[];
+        let valueReference: ElementReference;
+        let countIndex: number, index: number;
 
         countIndex = i.numberValue;
         if (add) {
@@ -1422,11 +1422,11 @@ namespace jsonBlocks {
 
 
     function GetJSONArray(tokens: Token[], i: NumberReference, depth: number, elementReference: ElementReference, add: boolean, counts: NumberArrayReference, errorMessages: StringArrayReference): boolean {
-        var element: Elementx, value: Elementx;
-        var nextToken: Token, comma: Token;
-        var done: boolean, success: boolean;
-        var valueReference: ElementReference;
-        var countIndex: number, index: number;
+        let element: Elementx, value: Elementx;
+        let nextToken: Token, comma: Token;
+        let done: boolean, success: boolean;
+        let valueReference: ElementReference;
+        let countIndex: number, index: number;
 
         index = 0;
         countIndex = i.numberValue;
@@ -1490,8 +1490,8 @@ namespace jsonBlocks {
 
 
     function GetObjectValue(stringElementMap: StringElementMap, key: string[]): Elementx {
-        var result: Elementx;
-        var i: number;
+        let result: Elementx;
+        let i: number;
 
         result = new Elementx();
 
@@ -1506,8 +1506,8 @@ namespace jsonBlocks {
 
 
     function GetObjectValueWithCheck(stringElementMap: StringElementMap, key: string[], foundReference: BooleanReference): Elementx {
-        var result: Elementx;
-        var i: number;
+        let result: Elementx;
+        let i: number;
 
         result = new Elementx();
 
@@ -1541,7 +1541,7 @@ namespace jsonBlocks {
 
 
     function GetTokenType(elementTypeName: string[]): TokenType {
-        var et: TokenType;
+        let et: TokenType;
 
         et = new TokenType();
         et.name = elementTypeName;
@@ -1551,9 +1551,9 @@ namespace jsonBlocks {
 
 
     function GetAndCheckTokenType(elementTypeName: string[], found: BooleanReference): TokenType {
-        var elementTypes: TokenType[];
-        var tokenType: TokenType;
-        var i: number, count: number;
+        let elementTypes: TokenType[];
+        let tokenType: TokenType;
+        let i: number, count: number;
 
         count = 12;
 
@@ -1595,9 +1595,9 @@ namespace jsonBlocks {
 
 
     function TokenTypeEnumEquals(a: string[], b: string[]): boolean {
-        var equals: boolean;
-        var eta: TokenType, etb: TokenType;
-        var founda: BooleanReference, foundb: BooleanReference;
+        let equals: boolean;
+        let eta: TokenType, etb: TokenType;
+        let founda: BooleanReference, foundb: BooleanReference;
 
         founda = new BooleanReference();
         foundb = new BooleanReference();
@@ -1616,9 +1616,9 @@ namespace jsonBlocks {
 
 
     function JSONCompare(a: string[], b: string[], epsilon: number, equal: BooleanReference, errorMessage: StringArrayReference): boolean {
-        var success: boolean;
-        var eaRef: ElementReference, ebRef: ElementReference;
-        var ea: Elementx, eb: Elementx;
+        let success: boolean;
+        let eaRef: ElementReference, ebRef: ElementReference;
+        let ea: Elementx, eb: Elementx;
 
         eaRef = new ElementReference();
         ebRef = new ElementReference();
@@ -1646,8 +1646,8 @@ namespace jsonBlocks {
 
 
     function JSONCompareElements(ea: Elementx, eb: Elementx, epsilon: number): boolean {
-        var equal: boolean;
-        var typeName: string[];
+        let equal: boolean;
+        let typeName: string[];
 
         equal = StringsEqual(ea.typex.name, eb.typex.name);
 
@@ -1673,8 +1673,8 @@ namespace jsonBlocks {
 
 
     function JSONCompareArrays(ea: Elementx[], eb: Elementx[], epsilon: number): boolean {
-        var equals: boolean;
-        var i: number, length: number;
+        let equals: boolean;
+        let i: number, length: number;
 
         equals = ea.length == eb.length;
 
@@ -1690,12 +1690,12 @@ namespace jsonBlocks {
 
 
     function JSONCompareObjects(ea: StringElementMap, eb: StringElementMap, epsilon: number): boolean {
-        var equals: boolean;
-        var akeys: number, bkeys: number, i: number;
-        var keys: StringArrayReference;
-        var key: string[];
-        var aFoundReference: BooleanReference, bFoundReference: BooleanReference;
-        var eaValue: Elementx, ebValue: Elementx;
+        let equals: boolean;
+        let akeys: number, bkeys: number, i: number;
+        let keys: StringArrayReference;
+        let key: string[];
+        let aFoundReference: BooleanReference, bFoundReference: BooleanReference;
+        let eaValue: Elementx, ebValue: Elementx;
 
         aFoundReference = new BooleanReference();
         bFoundReference = new BooleanReference();
@@ -1727,7 +1727,7 @@ namespace jsonBlocks {
 
 
     function GetElementType(elementTypeName: string[]): ElementType {
-        var et: ElementType;
+        let et: ElementType;
 
         et = new ElementType();
         et.name = elementTypeName;
@@ -1737,9 +1737,9 @@ namespace jsonBlocks {
 
 
     function GetAndCheckElementType(elementTypeName: string[], found: BooleanReference): ElementType {
-        var elementTypes: ElementType[];
-        var elementType: ElementType;
-        var i: number, antall: number;
+        let elementTypes: ElementType[];
+        let elementType: ElementType;
+        let i: number, antall: number;
 
         antall = 6;
 
@@ -1775,9 +1775,9 @@ namespace jsonBlocks {
 
 
     function ElementTypeEnumEquals(a: string[], b: string[]): boolean {
-        var equals: boolean;
-        var eta: ElementType, etb: ElementType;
-        var founda: BooleanReference, foundb: BooleanReference;
+        let equals: boolean;
+        let eta: ElementType, etb: ElementType;
+        let founda: BooleanReference, foundb: BooleanReference;
 
         founda = new BooleanReference();
         foundb = new BooleanReference();
@@ -1796,10 +1796,10 @@ namespace jsonBlocks {
 
 
     function testEscaper(): number {
-        var c: string;
-        var letters: NumberReference, failures: NumberReference;
-        var mustBeEscaped: boolean;
-        var escaped: string[];
+        let c: string;
+        let letters: NumberReference, failures: NumberReference;
+        let mustBeEscaped: boolean;
+        let escaped: string[];
 
         failures = CreateNumberReference(0);
         letters = CreateNumberReference(0);
@@ -1825,7 +1825,7 @@ namespace jsonBlocks {
 
 
     function mapTo(root: Elementx): Example {
-        var example: Example;
+        let example: Example;
 
         example = new Example();
         example.a = GetObjectValue(root.object, "a".split('')).stringx;
@@ -1837,7 +1837,7 @@ namespace jsonBlocks {
 
 
     function mapXTo(object: StringElementMap): X {
-        var x: X;
+        let x: X;
 
         x = new X();
 
@@ -1854,8 +1854,8 @@ namespace jsonBlocks {
 
 
     function mapbTo(array: Elementx[]): number[] {
-        var b: number[];
-        var i: number;
+        let b: number[];
+        let i: number;
 
         b = [];
 
@@ -1868,10 +1868,10 @@ namespace jsonBlocks {
 
 
     function testWriter(): number {
-        var stringx: string[];
-        var root: Elementx;
-        var example: Example;
-        var failures: NumberReference;
+        let stringx: string[];
+        let root: Elementx;
+        let example: Example;
+        let failures: NumberReference;
 
         failures = CreateNumberReference(0);
 
@@ -1899,7 +1899,7 @@ namespace jsonBlocks {
 
 
     function createExampleJSON(): Elementx {
-        var root: Elementx, innerObject: Elementx, array: Elementx;
+        let root: Elementx, innerObject: Elementx, array: Elementx;
 
         root = CreateObjectElement(3);
 
@@ -1923,9 +1923,9 @@ namespace jsonBlocks {
 
 
     function testWriterEscape(): number {
-        var stringx: string[];
-        var root: Elementx;
-        var failures: NumberReference;
+        let stringx: string[];
+        let root: Elementx;
+        let failures: NumberReference;
 
         failures = CreateNumberReference(0);
 
@@ -1944,12 +1944,12 @@ namespace jsonBlocks {
 
 
     function testReader(): number {
-        var failures: NumberReference;
-        var json: Elementx;
-        var stringx: string[], string2: string[];
-        var errorMessages: StringArrayReference;
-        var elementReference: ElementReference;
-        var success: boolean;
+        let failures: NumberReference;
+        let json: Elementx;
+        let stringx: string[], string2: string[];
+        let errorMessages: StringArrayReference;
+        let elementReference: ElementReference;
+        let success: boolean;
 
         failures = CreateNumberReference(0);
 
@@ -1974,12 +1974,12 @@ namespace jsonBlocks {
 
 
     function test2(): number {
-        var failures: NumberReference;
-        var stringx: string[], string2: string[];
-        var errorMessages: StringArrayReference;
-        var json: Elementx;
-        var elementReference: ElementReference;
-        var success: boolean;
+        let failures: NumberReference;
+        let stringx: string[], string2: string[];
+        let errorMessages: StringArrayReference;
+        let json: Elementx;
+        let elementReference: ElementReference;
+        let success: boolean;
 
         failures = CreateNumberReference(0);
 
@@ -2014,10 +2014,10 @@ namespace jsonBlocks {
 
 
     function testReaderExample(): number {
-        var json: string[];
-        var errorMessages: StringArrayReference;
-        var elementReference: ElementReference;
-        var outputJSON: StringReference;
+        let json: string[];
+        let errorMessages: StringArrayReference;
+        let elementReference: ElementReference;
+        let outputJSON: StringReference;
 
         errorMessages = CreateStringArrayReferenceLengthValue(0, "".split(''));
         elementReference = new ElementReference();
@@ -2032,13 +2032,13 @@ namespace jsonBlocks {
 
 
     function JSONExample(json: string[], errorMessages: StringArrayReference, elementReference: ElementReference, outputJSON: StringReference): void {
-        var success: boolean;
-        var element: Elementx, aElement: Elementx;
-        var stringx: string[];
-        var array: Elementx[];
-        var x: number, y: number, z: number;
+        let success: boolean;
+        let element: Elementx, aElement: Elementx;
+        let stringx: string[];
+        let array: Elementx[];
+        let x: number, y: number, z: number;
 
-		/* The following JSON is in the string json:
+        /* The following JSON is in the string json:
            {
              "a": "hi",
              "b": [1.2, 0.1, 100],
@@ -2081,7 +2081,7 @@ namespace jsonBlocks {
 
 
     function test(): number {
-        var failures: number;
+        let failures: number;
 
         failures = 0;
 
@@ -2100,9 +2100,9 @@ namespace jsonBlocks {
 
 
     function testValidator(): number {
-        var a: string[], b: string[];
-        var failures: NumberReference;
-        var errorMessages: StringArrayReference;
+        let a: string[], b: string[];
+        let failures: NumberReference;
+        let errorMessages: StringArrayReference;
 
         failures = CreateNumberReference(0);
         errorMessages = CreateStringArrayReferenceLengthValue(0, "".split(''));
@@ -2118,11 +2118,11 @@ namespace jsonBlocks {
 
 
     function testComparator(): number {
-        var a: string[], b: string[];
-        var failures: NumberReference;
-        var errorMessages: StringArrayReference;
-        var equalsReference: BooleanReference;
-        var success: boolean;
+        let a: string[], b: string[];
+        let failures: NumberReference;
+        let errorMessages: StringArrayReference;
+        let equalsReference: BooleanReference;
+        let success: boolean;
 
         failures = CreateNumberReference(0);
         errorMessages = CreateStringArrayReferenceLengthValue(0, "".split(''));
@@ -2154,12 +2154,12 @@ namespace jsonBlocks {
 
 
     function testTokenizer1(): number {
-        var failures: NumberReference, countReference: NumberReference, stringLength: NumberReference;
-        var errorMessages: StringArrayReference;
-        var tokenArrayReference: TokenArrayReference;
-        var success: boolean;
-        var numbers: StringReference[];
-        var i: number;
+        let failures: NumberReference, countReference: NumberReference, stringLength: NumberReference;
+        let errorMessages: StringArrayReference;
+        let tokenArrayReference: TokenArrayReference;
+        let success: boolean;
+        let numbers: StringReference[];
+        let i: number;
 
         failures = CreateNumberReference(0);
         countReference = CreateNumberReference(0);
@@ -2212,7 +2212,7 @@ namespace jsonBlocks {
 
 
     function CreateBooleanReference(value: boolean): BooleanReference {
-        var ref: BooleanReference;
+        let ref: BooleanReference;
         ref = new BooleanReference();
         ref.booleanValue = value;
 
@@ -2221,7 +2221,7 @@ namespace jsonBlocks {
 
 
     function CreateBooleanArrayReference(value: boolean[]): BooleanArrayReference {
-        var ref: BooleanArrayReference;
+        let ref: BooleanArrayReference;
         ref = new BooleanArrayReference();
         ref.booleanArray = value;
 
@@ -2230,8 +2230,8 @@ namespace jsonBlocks {
 
 
     function CreateBooleanArrayReferenceLengthValue(length: number, value: boolean): BooleanArrayReference {
-        var ref: BooleanArrayReference;
-        var i: number;
+        let ref: BooleanArrayReference;
+        let i: number;
         ref = new BooleanArrayReference();
         ref.booleanArray = [];
 
@@ -2250,7 +2250,7 @@ namespace jsonBlocks {
 
 
     function CreateCharacterReference(value: string): CharacterReference {
-        var ref: CharacterReference;
+        let ref: CharacterReference;
         ref = new CharacterReference();
         ref.characterValue = value;
 
@@ -2259,7 +2259,7 @@ namespace jsonBlocks {
 
 
     function CreateNumberReference(value: number): NumberReference {
-        var ref: NumberReference;
+        let ref: NumberReference;
         ref = new NumberReference();
         ref.numberValue = value;
 
@@ -2268,7 +2268,7 @@ namespace jsonBlocks {
 
 
     function CreateNumberArrayReference(value: number[]): NumberArrayReference {
-        var ref: NumberArrayReference;
+        let ref: NumberArrayReference;
         ref = new NumberArrayReference();
         ref.numberArray = value;
 
@@ -2277,8 +2277,8 @@ namespace jsonBlocks {
 
 
     function CreateNumberArrayReferenceLengthValue(length: number, value: number): NumberArrayReference {
-        var ref: NumberArrayReference;
-        var i: number;
+        let ref: NumberArrayReference;
+        let i: number;
         ref = new NumberArrayReference();
         ref.numberArray = [];
 
@@ -2297,7 +2297,7 @@ namespace jsonBlocks {
 
 
     function CreateStringReference(value: string[]): StringReference {
-        var ref: StringReference;
+        let ref: StringReference;
         ref = new StringReference();
         ref.stringx = value;
 
@@ -2306,8 +2306,8 @@ namespace jsonBlocks {
 
 
     function CreateStringReferenceLengthValue(length: number, value: string): StringReference {
-        var ref: StringReference;
-        var i: number;
+        let ref: StringReference;
+        let i: number;
         ref = new StringReference();
         ref.stringx = [];
 
@@ -2326,7 +2326,7 @@ namespace jsonBlocks {
 
 
     function CreateStringArrayReference(strings: StringReference[]): StringArrayReference {
-        var ref: StringArrayReference;
+        let ref: StringArrayReference;
         ref = new StringArrayReference();
         ref.stringArray = strings;
 
@@ -2335,8 +2335,8 @@ namespace jsonBlocks {
 
 
     function CreateStringArrayReferenceLengthValue(length: number, value: string[]): StringArrayReference {
-        var ref: StringArrayReference;
-        var i: number;
+        let ref: StringArrayReference;
+        let i: number;
         ref = new StringArrayReference();
         ref.stringArray = [];
 
@@ -2349,7 +2349,7 @@ namespace jsonBlocks {
 
 
     function FreeStringArrayReference(stringArrayReference: StringArrayReference): void {
-        var i: number;
+        let i: number;
         for (i = 0; i < stringArrayReference.stringArray.length; i = i + 1) {
             delete stringArrayReference.stringArray[i];
         }
@@ -2359,7 +2359,7 @@ namespace jsonBlocks {
 
 
     function strWriteStringToStingStream(stream: string[], index: NumberReference, src: string[]): void {
-        var i: number;
+        let i: number;
 
         for (i = 0; i < src.length; i = i + 1) {
             stream[index.numberValue + i] = src[i];
@@ -2384,7 +2384,7 @@ namespace jsonBlocks {
 
 
     function strSubstringWithCheck(stringx: string[], fromx: number, to: number, stringReference: StringReference): boolean {
-        var success: boolean;
+        let success: boolean;
 
         if (fromx >= 0 && fromx <= stringx.length && to >= 0 && to <= stringx.length && fromx <= to) {
             stringReference.stringx = strSubstring(stringx, fromx, to);
@@ -2398,8 +2398,8 @@ namespace jsonBlocks {
 
 
     function strSubstring(stringx: string[], fromx: number, to: number): string[] {
-        var n: string[];
-        var i: number, length: number;
+        let n: string[];
+        let i: number, length: number;
 
         length = to - fromx;
 
@@ -2414,7 +2414,7 @@ namespace jsonBlocks {
 
 
     function strAppendString(s1: string[], s2: string[]): string[] {
-        var newString: string[];
+        let newString: string[];
 
         newString = strConcatenateString(s1, s2);
 
@@ -2425,8 +2425,8 @@ namespace jsonBlocks {
 
 
     function strConcatenateString(s1: string[], s2: string[]): string[] {
-        var newString: string[];
-        var i: number;
+        let newString: string[];
+        let i: number;
 
         newString = [];
 
@@ -2443,7 +2443,7 @@ namespace jsonBlocks {
 
 
     function strAppendCharacter(stringx: string[], c: string): string[] {
-        var newString: string[];
+        let newString: string[];
 
         newString = strConcatenateCharacter(stringx, c);
 
@@ -2454,8 +2454,8 @@ namespace jsonBlocks {
 
 
     function strConcatenateCharacter(stringx: string[], c: string): string[] {
-        var newString: string[];
-        var i: number;
+        let newString: string[];
+        let i: number;
         newString = [];
 
         for (i = 0; i < stringx.length; i = i + 1) {
@@ -2469,8 +2469,8 @@ namespace jsonBlocks {
 
 
     function strSplitByCharacter(toSplit: string[], splitBy: string): StringReference[] {
-        var split: StringReference[];
-        var stringToSplitBy: string[];
+        let split: StringReference[];
+        let stringToSplitBy: string[];
 
         stringToSplitBy = [];
         stringToSplitBy[0] = splitBy;
@@ -2484,8 +2484,8 @@ namespace jsonBlocks {
 
 
     function strIndexOfCharacter(stringx: string[], character: string, indexReference: NumberReference): boolean {
-        var i: number;
-        var found: boolean;
+        let i: number;
+        let found: boolean;
 
         found = false;
         for (i = 0; i < stringx.length && !found; i = i + 1) {
@@ -2500,7 +2500,7 @@ namespace jsonBlocks {
 
 
     function strSubstringEqualsWithCheck(stringx: string[], fromx: number, substring: string[], equalsReference: BooleanReference): boolean {
-        var success: boolean;
+        let success: boolean;
 
         if (fromx < stringx.length) {
             success = true;
@@ -2514,8 +2514,8 @@ namespace jsonBlocks {
 
 
     function strSubstringEquals(stringx: string[], fromx: number, substring: string[]): boolean {
-        var i: number;
-        var equal: boolean;
+        let i: number;
+        let equal: boolean;
 
         equal = true;
         for (i = 0; i < substring.length && equal; i = i + 1) {
@@ -2529,8 +2529,8 @@ namespace jsonBlocks {
 
 
     function strIndexOfString(stringx: string[], substring: string[], indexReference: NumberReference): boolean {
-        var i: number;
-        var found: boolean;
+        let i: number;
+        let found: boolean;
 
         found = false;
         for (i = 0; i < stringx.length - substring.length + 1 && !found; i = i + 1) {
@@ -2545,8 +2545,8 @@ namespace jsonBlocks {
 
 
     function strContainsCharacter(stringx: string[], character: string): boolean {
-        var i: number;
-        var found: boolean;
+        let i: number;
+        let found: boolean;
 
         found = false;
         for (i = 0; i < stringx.length && !found; i = i + 1) {
@@ -2565,7 +2565,7 @@ namespace jsonBlocks {
 
 
     function strToUpperCase(stringx: string[]): void {
-        var i: number;
+        let i: number;
 
         for (i = 0; i < stringx.length; i = i + 1) {
             stringx[i] = charToUpperCase(stringx[i]);
@@ -2574,7 +2574,7 @@ namespace jsonBlocks {
 
 
     function strToLowerCase(stringx: string[]): void {
-        var i: number;
+        let i: number;
 
         for (i = 0; i < stringx.length; i = i + 1) {
             stringx[i] = charToLowerCase(stringx[i]);
@@ -2583,8 +2583,8 @@ namespace jsonBlocks {
 
 
     function strEqualsIgnoreCase(a: string[], b: string[]): boolean {
-        var equal: boolean;
-        var i: number;
+        let equal: boolean;
+        let i: number;
 
         if (a.length == b.length) {
             equal = true;
@@ -2602,10 +2602,10 @@ namespace jsonBlocks {
 
 
     function strReplaceString(stringx: string[], toReplace: string[], replaceWith: string[]): string[] {
-        var result: string[];
-        var i: number;
-        var equalsReference: BooleanReference;
-        var success: boolean;
+        let result: string[];
+        let i: number;
+        let equalsReference: BooleanReference;
+        let success: boolean;
 
         equalsReference = new BooleanReference();
         result = [];
@@ -2630,8 +2630,8 @@ namespace jsonBlocks {
 
 
     function strReplaceCharacter(stringx: string[], toReplace: string, replaceWith: string): string[] {
-        var result: string[];
-        var i: number;
+        let result: string[];
+        let i: number;
 
         result = [];
 
@@ -2648,9 +2648,9 @@ namespace jsonBlocks {
 
 
     function strTrim(stringx: string[]): string[] {
-        var result: string[];
-        var i: number, lastWhitespaceLocationStart: number, lastWhitespaceLocationEnd: number;
-        var firstNonWhitespaceFound: boolean;
+        let result: string[];
+        let i: number, lastWhitespaceLocationStart: number, lastWhitespaceLocationEnd: number;
+        let firstNonWhitespaceFound: boolean;
 
         /* Find whitepaces at the start.*/
         lastWhitespaceLocationStart = -1;
@@ -2685,7 +2685,7 @@ namespace jsonBlocks {
 
 
     function strStartsWith(stringx: string[], start: string[]): boolean {
-        var startsWithString: boolean;
+        let startsWithString: boolean;
 
         startsWithString = false;
         if (stringx.length >= start.length) {
@@ -2697,7 +2697,7 @@ namespace jsonBlocks {
 
 
     function strEndsWith(stringx: string[], end: string[]): boolean {
-        var endsWithString: boolean;
+        let endsWithString: boolean;
 
         endsWithString = false;
         if (stringx.length >= end.length) {
@@ -2709,11 +2709,11 @@ namespace jsonBlocks {
 
 
     function strSplitByString(toSplit: string[], splitBy: string[]): StringReference[] {
-        var split: StringReference[];
-        var next: string[];
-        var i: number;
-        var c: string;
-        var n: StringReference;
+        let split: StringReference[];
+        let next: string[];
+        let i: number;
+        let c: string;
+        let n: StringReference;
 
         split = [];
 
@@ -2746,11 +2746,11 @@ namespace jsonBlocks {
 
 
     function nCreateStringScientificNotationDecimalFromNumber(decimal: number): string[] {
-        var mantissaReference: StringReference, exponentReference: StringReference;
-        var multiplier: number, inc: number;
-        var exponent: number;
-        var done: boolean, isPositive: boolean;
-        var result: string[];
+        let mantissaReference: StringReference, exponentReference: StringReference;
+        let multiplier: number, inc: number;
+        let exponent: number;
+        let done: boolean, isPositive: boolean;
+        let result: string[];
         mantissaReference = new StringReference();
         exponentReference = new StringReference();
         result = [];
@@ -2805,7 +2805,7 @@ namespace jsonBlocks {
 
 
     function nCreateStringDecimalFromNumber(decimal: number): string[] {
-        var stringReference: StringReference;
+        let stringReference: StringReference;
         stringReference = new StringReference();
 
         /* This will succeed because base = 10.*/
@@ -2816,14 +2816,14 @@ namespace jsonBlocks {
 
 
     function nCreateStringFromNumberWithCheck(decimal: number, base: number, stringReference: StringReference): boolean {
-        var stringx: string[];
-        var maximumDigits: number;
-        var digitPosition: number;
-        var hasPrintedPoint: boolean, isPositive: boolean;
-        var i: number, d: number;
-        var success: boolean;
-        var characterReference: CharacterReference;
-        var c: string;
+        let stringx: string[];
+        let maximumDigits: number;
+        let digitPosition: number;
+        let hasPrintedPoint: boolean, isPositive: boolean;
+        let i: number, d: number;
+        let success: boolean;
+        let characterReference: CharacterReference;
+        let c: string;
         isPositive = true;
 
         if (decimal < 0) {
@@ -2894,15 +2894,15 @@ namespace jsonBlocks {
 
 
     function nGetMaximumDigitsForBase(base: number): number {
-        var t: number;
+        let t: number;
         t = 10 ** 15;
         return Math.floor(Math.log(t) / Math.log(base));
     }
 
 
     function nGetFirstDigitPosition(decimal: number, base: number): number {
-        var power: number;
-        var t: number;
+        let power: number;
+        let t: number;
         power = Math.ceil(Math.log(decimal) / Math.log(base));
 
         t = decimal * base ** (-power);
@@ -2918,8 +2918,8 @@ namespace jsonBlocks {
 
 
     function nGetSingleDigitCharacterFromNumberWithCheck(c: number, base: number, characterReference: CharacterReference): boolean {
-        var numberTable: string[];
-        var success: boolean;
+        let numberTable: string[];
+        let success: boolean;
         numberTable = nGetDigitCharacterTable();
 
         if (c < base || c < numberTable.length) {
@@ -2934,7 +2934,7 @@ namespace jsonBlocks {
 
 
     function nGetDigitCharacterTable(): string[] {
-        var numberTable: string[];
+        let numberTable: string[];
         numberTable = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
 
         return numberTable;
@@ -2947,9 +2947,9 @@ namespace jsonBlocks {
 
 
     function nCreateNumberFromDecimalString(stringx: string[]): number {
-        var doubleReference: NumberReference;
-        var stringReference: StringReference;
-        var numberx: number;
+        let doubleReference: NumberReference;
+        let stringReference: StringReference;
+        let numberx: number;
         doubleReference = CreateNumberReference(0);
         stringReference = CreateStringReference("".split(''));
         nCreateNumberFromStringWithCheck(stringx, 10, doubleReference, stringReference);
@@ -2963,9 +2963,9 @@ namespace jsonBlocks {
 
 
     function nCreateNumberFromStringWithCheck(stringx: string[], base: number, numberReference: NumberReference, errorMessage: StringReference): boolean {
-        var success: boolean;
-        var numberIsPositive: BooleanReference, exponentIsPositive: BooleanReference;
-        var beforePoint: NumberArrayReference, afterPoint: NumberArrayReference, exponent: NumberArrayReference;
+        let success: boolean;
+        let numberIsPositive: BooleanReference, exponentIsPositive: BooleanReference;
+        let beforePoint: NumberArrayReference, afterPoint: NumberArrayReference, exponent: NumberArrayReference;
         numberIsPositive = CreateBooleanReference(true);
         exponentIsPositive = CreateBooleanReference(true);
         beforePoint = new NumberArrayReference();
@@ -2987,7 +2987,7 @@ namespace jsonBlocks {
 
 
     function nCreateNumberFromParts(base: number, numberIsPositive: boolean, beforePoint: number[], afterPoint: number[], exponentIsPositive: boolean, exponent: number[]): number {
-        var n: number, i: number, p: number, e: number;
+        let n: number, i: number, p: number, e: number;
         n = 0;
 
         for (i = 0; i < beforePoint.length; i = i + 1) {
@@ -3021,8 +3021,8 @@ namespace jsonBlocks {
 
 
     function nExtractPartsFromNumberString(n: string[], base: number, numberIsPositive: BooleanReference, beforePoint: NumberArrayReference, afterPoint: NumberArrayReference, exponentIsPositive: BooleanReference, exponent: NumberArrayReference, errorMessages: StringReference): boolean {
-        var i: number;
-        var success: boolean;
+        let i: number;
+        let success: boolean;
         i = 0;
 
         if (i < n.length) {
@@ -3044,8 +3044,8 @@ namespace jsonBlocks {
 
 
     function nExtractPartsFromNumberStringFromSign(n: string[], base: number, i: number, beforePoint: NumberArrayReference, afterPoint: NumberArrayReference, exponentIsPositive: BooleanReference, exponent: NumberArrayReference, errorMessages: StringReference): boolean {
-        var success: boolean, done: boolean;
-        var count: number, j: number;
+        let success: boolean, done: boolean;
+        let count: number, j: number;
         done = false;
         count = 0;
         for (; i + count < n.length && !done;) {
@@ -3079,8 +3079,8 @@ namespace jsonBlocks {
 
 
     function nExtractPartsFromNumberStringFromPointOrExponent(n: string[], base: number, i: number, afterPoint: NumberArrayReference, exponentIsPositive: BooleanReference, exponent: NumberArrayReference, errorMessages: StringReference): boolean {
-        var success: boolean, done: boolean;
-        var count: number, j: number;
+        let success: boolean, done: boolean;
+        let count: number, j: number;
         if (n[i] == '.') {
             i = i + 1;
             if (i < n.length) {
@@ -3131,8 +3131,8 @@ namespace jsonBlocks {
 
 
     function nExtractPartsFromNumberStringFromExponent(n: string[], base: number, i: number, exponentIsPositive: BooleanReference, exponent: NumberArrayReference, errorMessages: StringReference): boolean {
-        var success: boolean, done: boolean;
-        var count: number, j: number;
+        let success: boolean, done: boolean;
+        let count: number, j: number;
         if (base <= 14 && (n[i] == 'e' || n[i] == 'E')) {
             i = i + 1;
             if (i < n.length) {
@@ -3187,9 +3187,9 @@ namespace jsonBlocks {
 
 
     function nGetNumberFromNumberCharacterForBase(c: string, base: number): number {
-        var numberTable: string[];
-        var i: number;
-        var position: number;
+        let numberTable: string[];
+        let i: number;
+        let position: number;
         numberTable = nGetDigitCharacterTable();
         position = 0;
 
@@ -3204,9 +3204,9 @@ namespace jsonBlocks {
 
 
     function nCharacterIsNumberCharacterInBase(c: string, base: number): boolean {
-        var numberTable: string[];
-        var i: number;
-        var found: boolean;
+        let numberTable: string[];
+        let i: number;
+        let found: boolean;
         numberTable = nGetDigitCharacterTable();
         found = false;
 
@@ -3221,9 +3221,9 @@ namespace jsonBlocks {
 
 
     function nStringToNumberArray(str: string[]): number[] {
-        var numberArrayReference: NumberArrayReference;
-        var stringReference: StringReference;
-        var numbers: number[];
+        let numberArrayReference: NumberArrayReference;
+        let stringReference: StringReference;
+        let numbers: number[];
         numberArrayReference = new NumberArrayReference();
         stringReference = new StringReference();
 
@@ -3239,12 +3239,12 @@ namespace jsonBlocks {
 
 
     function nStringToNumberArrayWithCheck(str: string[], numberArrayReference: NumberArrayReference, errorMessage: StringReference): boolean {
-        var numberStrings: StringReference[];
-        var numbers: number[];
-        var i: number;
-        var numberString: string[], trimmedNumberString: string[];
-        var success: boolean;
-        var numberReference: NumberReference;
+        let numberStrings: StringReference[];
+        let numbers: number[];
+        let i: number;
+        let numberString: string[], trimmedNumberString: string[];
+        let success: boolean;
+        let numberReference: NumberReference;
         numberStrings = SplitByString(str, ",".split(''));
 
         numbers = [];
@@ -3270,8 +3270,8 @@ namespace jsonBlocks {
 
 
     function AddNumber(list: number[], a: number): number[] {
-        var newlist: number[];
-        var i: number;
+        let newlist: number[];
+        let i: number;
 
         newlist = [];
         for (i = 0; i < list.length; i = i + 1) {
@@ -3291,8 +3291,8 @@ namespace jsonBlocks {
 
 
     function RemoveNumber(list: number[], n: number): number[] {
-        var newlist: number[];
-        var i: number;
+        let newlist: number[];
+        let i: number;
 
         newlist = [];
 
@@ -3326,8 +3326,8 @@ namespace jsonBlocks {
 
 
     function AddString(list: StringReference[], a: StringReference): StringReference[] {
-        var newlist: StringReference[];
-        var i: number;
+        let newlist: StringReference[];
+        let i: number;
 
         newlist = [];
 
@@ -3348,8 +3348,8 @@ namespace jsonBlocks {
 
 
     function RemoveString(list: StringReference[], n: number): StringReference[] {
-        var newlist: StringReference[];
-        var i: number;
+        let newlist: StringReference[];
+        let i: number;
 
         newlist = [];
 
@@ -3383,8 +3383,8 @@ namespace jsonBlocks {
 
 
     function AddBoolean(list: boolean[], a: boolean): boolean[] {
-        var newlist: boolean[];
-        var i: number;
+        let newlist: boolean[];
+        let i: number;
 
         newlist = [];
         for (i = 0; i < list.length; i = i + 1) {
@@ -3404,8 +3404,8 @@ namespace jsonBlocks {
 
 
     function RemoveBoolean(list: boolean[], n: number): boolean[] {
-        var newlist: boolean[];
-        var i: number;
+        let newlist: boolean[];
+        let i: number;
 
         newlist = [];
 
@@ -3439,8 +3439,8 @@ namespace jsonBlocks {
 
 
     function AddCharacter(list: string[], a: string): string[] {
-        var newlist: string[];
-        var i: number;
+        let newlist: string[];
+        let i: number;
 
         newlist = [];
         for (i = 0; i < list.length; i = i + 1) {
@@ -3460,8 +3460,8 @@ namespace jsonBlocks {
 
 
     function RemoveCharacter(list: string[], n: number): string[] {
-        var newlist: string[];
-        var i: number;
+        let newlist: string[];
+        let i: number;
 
         newlist = [];
 
@@ -3505,7 +3505,7 @@ namespace jsonBlocks {
 
 
     function Factorial(x: number): number {
-        var i: number, f: number;
+        let i: number, f: number;
         f = 1;
 
         for (i = 2; i <= x; i = i + 1) {
@@ -3522,7 +3522,7 @@ namespace jsonBlocks {
 
 
     function BankersRound(x: number): number {
-        var r: number;
+        let r: number;
         if (Absolute(x - Truncate(x)) == 0.5) {
             if (!DivisibleBy(Round(x), 2)) {
                 r = Round(x) - 1;
@@ -3548,7 +3548,7 @@ namespace jsonBlocks {
 
 
     function Truncate(x: number): number {
-        var t: number;
+        let t: number;
         if (x >= 0) {
             t = Math.floor(x);
         } else {
@@ -3565,7 +3565,7 @@ namespace jsonBlocks {
 
 
     function Logarithm(x: number): number {
-        return Math.log10(x);
+        return Math.log(x);
     }
 
 
@@ -3605,7 +3605,7 @@ namespace jsonBlocks {
 
 
     function Atan2(y: number, x: number): number {
-        var a: number;
+        let a: number;
         a = 0;
 
         if (x > 0) {
@@ -3645,15 +3645,15 @@ namespace jsonBlocks {
 
 
     function EpsilonCompareApproximateDigits(a: number, b: number, digits: number): boolean {
-        var ad: number, bd: number, d: number, epsilon: number;
-        var ret: boolean;
+        let ad: number, bd: number, d: number, epsilon: number;
+        let ret: boolean;
         if (a < 0 && b < 0 || a > 0 && b > 0) {
             if (a < 0 && b < 0) {
                 a = -a;
                 b = -b;
             }
-            ad = Math.log10(a);
-            bd = Math.log10(b);
+            ad = Math.log(a);
+            bd = Math.log(b);
             d = Math.max(ad, bd);
             epsilon = 10 ** (d - digits);
             ret = Math.abs(a - b) > epsilon;
@@ -3671,7 +3671,7 @@ namespace jsonBlocks {
 
 
     function GreatestCommonDivisor(a: number, b: number): number {
-        var t: number;
+        let t: number;
         for (; b != 0;) {
             t = b;
             b = a % b;
@@ -3688,8 +3688,8 @@ namespace jsonBlocks {
 
 
     function GreatestCommonDivisorWithCheck(a: number, b: number, gcdReference: NumberReference): boolean {
-        var success: boolean;
-        var gcd: number;
+        let success: boolean;
+        let gcd: number;
         if (IsInteger(a) && IsInteger(b)) {
             gcd = GreatestCommonDivisor(a, b);
             gcdReference.numberValue = gcd;
@@ -3703,7 +3703,7 @@ namespace jsonBlocks {
     }
 
     function LeastCommonMultiple(a: number, b: number): number {
-        var lcm: number;
+        let lcm: number;
         if (a > 0 && b > 0) {
             lcm = Math.abs(a * b) / GreatestCommonDivisor(a, b);
         } else {
@@ -3715,7 +3715,7 @@ namespace jsonBlocks {
 
 
     function Sign(a: number): number {
-        var s: number;
+        let s: number;
         if (a > 0) {
             s = 1;
         } else if (a < 0) {
@@ -3744,8 +3744,8 @@ namespace jsonBlocks {
 
 
     function StringToNumberArray(stringx: string[]): number[] {
-        var i: number;
-        var array: number[];
+        let i: number;
+        let array: number[];
 
         array = [];
 
@@ -3757,8 +3757,8 @@ namespace jsonBlocks {
 
 
     function NumberArrayToString(array: number[]): string[] {
-        var i: number;
-        var stringx: string[];
+        let i: number;
+        let stringx: string[];
 
         stringx = [];
 
@@ -3770,8 +3770,8 @@ namespace jsonBlocks {
 
 
     function NumberArraysEqual(a: number[], b: number[]): boolean {
-        var equal: boolean;
-        var i: number;
+        let equal: boolean;
+        let i: number;
 
         equal = true;
         if (a.length == b.length) {
@@ -3789,8 +3789,8 @@ namespace jsonBlocks {
 
 
     function BooleanArraysEqual(a: boolean[], b: boolean[]): boolean {
-        var equal: boolean;
-        var i: number;
+        let equal: boolean;
+        let i: number;
 
         equal = true;
         if (a.length == b.length) {
@@ -3808,8 +3808,8 @@ namespace jsonBlocks {
 
 
     function StringsEqual(a: string[], b: string[]): boolean {
-        var equal: boolean;
-        var i: number;
+        let equal: boolean;
+        let i: number;
 
         equal = true;
         if (a.length == b.length) {
@@ -3827,7 +3827,7 @@ namespace jsonBlocks {
 
 
     function FillNumberArray(a: number[], value: number): void {
-        var i: number;
+        let i: number;
 
         for (i = 0; i < a.length; i = i + 1) {
             a[i] = value;
@@ -3836,7 +3836,7 @@ namespace jsonBlocks {
 
 
     function FillString(a: string[], value: string): void {
-        var i: number;
+        let i: number;
 
         for (i = 0; i < a.length; i = i + 1) {
             a[i] = value;
@@ -3845,7 +3845,7 @@ namespace jsonBlocks {
 
 
     function FillBooleanArray(a: boolean[], value: boolean): void {
-        var i: number;
+        let i: number;
 
         for (i = 0; i < a.length; i = i + 1) {
             a[i] = value;
@@ -3854,8 +3854,8 @@ namespace jsonBlocks {
 
 
     function FillNumberArrayRange(a: number[], value: number, fromx: number, to: number): boolean {
-        var i: number, length: number;
-        var success: boolean;
+        let i: number, length: number;
+        let success: boolean;
 
         if (fromx >= 0 && fromx <= a.length && to >= 0 && to <= a.length && fromx <= to) {
             length = to - fromx;
@@ -3873,8 +3873,8 @@ namespace jsonBlocks {
 
 
     function FillBooleanArrayRange(a: boolean[], value: boolean, fromx: number, to: number): boolean {
-        var i: number, length: number;
-        var success: boolean;
+        let i: number, length: number;
+        let success: boolean;
 
         if (fromx >= 0 && fromx <= a.length && to >= 0 && to <= a.length && fromx <= to) {
             length = to - fromx;
@@ -3892,8 +3892,8 @@ namespace jsonBlocks {
 
 
     function FillStringRange(a: string[], value: string, fromx: number, to: number): boolean {
-        var i: number, length: number;
-        var success: boolean;
+        let i: number, length: number;
+        let success: boolean;
 
         if (fromx >= 0 && fromx <= a.length && to >= 0 && to <= a.length && fromx <= to) {
             length = to - fromx;
@@ -3911,8 +3911,8 @@ namespace jsonBlocks {
 
 
     function CopyNumberArray(a: number[]): number[] {
-        var i: number;
-        var n: number[];
+        let i: number;
+        let n: number[];
 
         n = [];
 
@@ -3925,8 +3925,8 @@ namespace jsonBlocks {
 
 
     function CopyBooleanArray(a: boolean[]): boolean[] {
-        var i: number;
-        var n: boolean[];
+        let i: number;
+        let n: boolean[];
 
         n = [];
 
@@ -3939,8 +3939,8 @@ namespace jsonBlocks {
 
 
     function CopyString(a: string[]): string[] {
-        var i: number;
-        var n: string[];
+        let i: number;
+        let n: string[];
 
         n = [];
 
@@ -3953,9 +3953,9 @@ namespace jsonBlocks {
 
 
     function CopyNumberArrayRange(a: number[], fromx: number, to: number, copyReference: NumberArrayReference): boolean {
-        var i: number, length: number;
-        var n: number[];
-        var success: boolean;
+        let i: number, length: number;
+        let n: number[];
+        let success: boolean;
 
         if (fromx >= 0 && fromx <= a.length && to >= 0 && to <= a.length && fromx <= to) {
             length = to - fromx;
@@ -3976,9 +3976,9 @@ namespace jsonBlocks {
 
 
     function CopyBooleanArrayRange(a: boolean[], fromx: number, to: number, copyReference: BooleanArrayReference): boolean {
-        var i: number, length: number;
-        var n: boolean[];
-        var success: boolean;
+        let i: number, length: number;
+        let n: boolean[];
+        let success: boolean;
 
         if (fromx >= 0 && fromx <= a.length && to >= 0 && to <= a.length && fromx <= to) {
             length = to - fromx;
@@ -3999,9 +3999,9 @@ namespace jsonBlocks {
 
 
     function CopyStringRange(a: string[], fromx: number, to: number, copyReference: StringReference): boolean {
-        var i: number, length: number;
-        var n: string[];
-        var success: boolean;
+        let i: number, length: number;
+        let n: string[];
+        let success: boolean;
 
         if (fromx >= 0 && fromx <= a.length && to >= 0 && to <= a.length && fromx <= to) {
             length = to - fromx;
@@ -4027,7 +4027,7 @@ namespace jsonBlocks {
 
 
     function CreateNumberArray(length: number, value: number): number[] {
-        var array: number[];
+        let array: number[];
 
         array = [];
         FillNumberArray(array, value);
@@ -4037,7 +4037,7 @@ namespace jsonBlocks {
 
 
     function CreateBooleanArray(length: number, value: boolean): boolean[] {
-        var array: boolean[];
+        let array: boolean[];
 
         array = [];
         FillBooleanArray(array, value);
@@ -4047,7 +4047,7 @@ namespace jsonBlocks {
 
 
     function CreateString(length: number, value: string): string[] {
-        var array: string[];
+        let array: string[];
 
         array = [];
         FillString(array, value);
@@ -4057,7 +4057,7 @@ namespace jsonBlocks {
 
 
     function SwapElementsOfArray(A: number[], ai: number, bi: number): void {
-        var tmp: number;
+        let tmp: number;
 
         tmp = A[ai];
         A[ai] = A[bi];
@@ -4066,7 +4066,7 @@ namespace jsonBlocks {
 
 
     function charToLowerCase(character: string): string {
-        var toReturn: string;
+        let toReturn: string;
 
         toReturn = character;
         if (character == 'A') {
@@ -4128,7 +4128,7 @@ namespace jsonBlocks {
 
 
     function charToUpperCase(character: string): string {
-        var toReturn: string;
+        let toReturn: string;
 
         toReturn = character;
         if (character == 'a') {
@@ -4190,7 +4190,7 @@ namespace jsonBlocks {
 
 
     function charIsUpperCase(character: string): boolean {
-        var isUpper: boolean;
+        let isUpper: boolean;
 
         isUpper = false;
         if (character == 'A') {
@@ -4252,7 +4252,7 @@ namespace jsonBlocks {
 
 
     function charIsLowerCase(character: string): boolean {
-        var isLower: boolean;
+        let isLower: boolean;
 
         isLower = false;
         if (character == 'a') {
@@ -4319,7 +4319,7 @@ namespace jsonBlocks {
 
 
     function charIsNumber(character: string): boolean {
-        var isNumberx: boolean;
+        let isNumberx: boolean;
 
         isNumberx = false;
         if (character == '0') {
@@ -4349,7 +4349,7 @@ namespace jsonBlocks {
 
 
     function charIsWhiteSpace(character: string): boolean {
-        var isWhiteSpacex: boolean;
+        let isWhiteSpacex: boolean;
 
         isWhiteSpacex = false;
         if (character == ' ') {
@@ -4367,7 +4367,7 @@ namespace jsonBlocks {
 
 
     function charIsSymbol(character: string): boolean {
-        var isSymbolx: boolean;
+        let isSymbolx: boolean;
 
         isSymbolx = false;
         if (character == '!') {
@@ -4483,7 +4483,7 @@ namespace jsonBlocks {
 
 
     function AssertNumberArraysEqual(a: number[], b: number[], failures: NumberReference): void {
-        var i: number;
+        let i: number;
 
         if (a.length == b.length) {
             for (i = 0; i < a.length; i = i + 1) {
@@ -4496,7 +4496,7 @@ namespace jsonBlocks {
 
 
     function AssertBooleanArraysEqual(a: boolean[], b: boolean[], failures: NumberReference): void {
-        var i: number;
+        let i: number;
 
         if (a.length == b.length) {
             for (i = 0; i < a.length; i = i + 1) {
@@ -4509,7 +4509,7 @@ namespace jsonBlocks {
 
 
     function AssertStringArraysEqual(a: StringReference[], b: StringReference[], failures: NumberReference): void {
-        var i: number;
+        let i: number;
 
         if (a.length == b.length) {
             for (i = 0; i < a.length; i = i + 1) {
@@ -4522,7 +4522,7 @@ namespace jsonBlocks {
 
 
     function SubstringWithCheck(stringx: string[], fromx: number, to: number, stringReference: StringReference): boolean {
-        var success: boolean;
+        let success: boolean;
         if (fromx < stringx.length && to < stringx.length && fromx <= to && fromx >= 0 && to >= 0) {
             stringReference.stringx = Substring(stringx, fromx, to);
             success = true;
@@ -4535,8 +4535,8 @@ namespace jsonBlocks {
 
 
     function Substring(stringx: string[], fromx: number, to: number): string[] {
-        var n: string[];
-        var i: number;
+        let n: string[];
+        let i: number;
         n = [];
 
         for (i = fromx; i < to; i = i + 1) {
@@ -4548,7 +4548,7 @@ namespace jsonBlocks {
 
 
     function AppendString(stringx: string[], s: string[]): string[] {
-        var newString: string[];
+        let newString: string[];
         newString = ConcatenateString(stringx, s);
 
         stringx = undefined;
@@ -4558,8 +4558,8 @@ namespace jsonBlocks {
 
 
     function ConcatenateString(stringx: string[], s: string[]): string[] {
-        var newString: string[];
-        var i: number;
+        let newString: string[];
+        let i: number;
         newString = [];
 
         for (i = 0; i < stringx.length; i = i + 1) {
@@ -4575,7 +4575,7 @@ namespace jsonBlocks {
 
 
     function AppendCharacter(stringx: string[], c: string): string[] {
-        var newString: string[];
+        let newString: string[];
         newString = ConcatenateCharacter(stringx, c);
 
         stringx = undefined;
@@ -4585,8 +4585,8 @@ namespace jsonBlocks {
 
 
     function ConcatenateCharacter(stringx: string[], c: string): string[] {
-        var newString: string[];
-        var i: number;
+        let newString: string[];
+        let i: number;
         newString = [];
 
         for (i = 0; i < stringx.length; i = i + 1) {
@@ -4600,8 +4600,8 @@ namespace jsonBlocks {
 
 
     function SplitByCharacter(toSplit: string[], splitBy: string): StringReference[] {
-        var split: StringReference[];
-        var stringToSplitBy: string[];
+        let split: StringReference[];
+        let stringToSplitBy: string[];
         stringToSplitBy = [];
         stringToSplitBy[0] = splitBy;
 
@@ -4614,8 +4614,8 @@ namespace jsonBlocks {
 
 
     function IndexOfCharacter(stringx: string[], character: string, indexReference: NumberReference): boolean {
-        var i: number;
-        var found: boolean;
+        let i: number;
+        let found: boolean;
         found = false;
         for (i = 0; i < stringx.length && !found; i = i + 1) {
             if (stringx[i] == character) {
@@ -4629,7 +4629,7 @@ namespace jsonBlocks {
 
 
     function SubstringEqualsWithCheck(stringx: string[], fromx: number, substring: string[], equalsReference: BooleanReference): boolean {
-        var success: boolean;
+        let success: boolean;
         if (fromx < stringx.length) {
             success = true;
             equalsReference.booleanValue = SubstringEquals(stringx, fromx, substring);
@@ -4642,8 +4642,8 @@ namespace jsonBlocks {
 
 
     function SubstringEquals(stringx: string[], fromx: number, substring: string[]): boolean {
-        var i: number;
-        var equal: boolean;
+        let i: number;
+        let equal: boolean;
         equal = true;
         for (i = 0; i < substring.length && equal; i = i + 1) {
             if (stringx[fromx + i] != substring[i]) {
@@ -4656,8 +4656,8 @@ namespace jsonBlocks {
 
 
     function IndexOfString(stringx: string[], substring: string[], indexReference: NumberReference): boolean {
-        var i: number;
-        var found: boolean;
+        let i: number;
+        let found: boolean;
         found = false;
         for (i = 0; i < stringx.length - substring.length + 1 && !found; i = i + 1) {
             if (SubstringEquals(stringx, i, substring)) {
@@ -4681,7 +4681,7 @@ namespace jsonBlocks {
 
 
     function ToUpperCase(stringx: string[]): void {
-        var i: number;
+        let i: number;
         for (i = 0; i < stringx.length; i = i + 1) {
             stringx[i] = cToUpperCase(stringx[i]);
         }
@@ -4689,7 +4689,7 @@ namespace jsonBlocks {
 
 
     function ToLowerCase(stringx: string[]): void {
-        var i: number;
+        let i: number;
         for (i = 0; i < stringx.length; i = i + 1) {
             stringx[i] = cToLowerCase(stringx[i]);
         }
@@ -4697,8 +4697,8 @@ namespace jsonBlocks {
 
 
     function EqualsIgnoreCase(a: string[], b: string[]): boolean {
-        var equal: boolean;
-        var i: number;
+        let equal: boolean;
+        let i: number;
         if (a.length == b.length) {
             equal = true;
             for (i = 0; i < a.length && equal; i = i + 1) {
@@ -4715,10 +4715,10 @@ namespace jsonBlocks {
 
 
     function ReplacesString(stringx: string[], toReplace: string[], replaceWith: string[]): string[] {
-        var result: string[];
-        var i: number;
-        var equalsReference: BooleanReference;
-        var success: boolean;
+        let result: string[];
+        let i: number;
+        let equalsReference: BooleanReference;
+        let success: boolean;
         equalsReference = new BooleanReference();
         result = [];
 
@@ -4741,8 +4741,8 @@ namespace jsonBlocks {
 
 
     function ReplaceCharacter(stringx: string[], toReplace: string, replaceWith: string): string[] {
-        var result: string[];
-        var i: number;
+        let result: string[];
+        let i: number;
         result = [];
 
         for (i = 0; i < stringx.length; i = i + 1) {
@@ -4758,9 +4758,9 @@ namespace jsonBlocks {
 
 
     function Trim(stringx: string[]): string[] {
-        var result: string[];
-        var i: number, lastWhitespaceLocationStart: number, lastWhitespaceLocationEnd: number;
-        var firstNonWhitespaceFound: boolean;
+        let result: string[];
+        let i: number, lastWhitespaceLocationStart: number, lastWhitespaceLocationEnd: number;
+        let firstNonWhitespaceFound: boolean;
         lastWhitespaceLocationStart = -1;
         firstNonWhitespaceFound = false;
         for (i = 0; i < stringx.length && !firstNonWhitespaceFound; i = i + 1) {
@@ -4793,7 +4793,7 @@ namespace jsonBlocks {
 
 
     function StartsWith(stringx: string[], start: string[]): boolean {
-        var startsWithString: boolean;
+        let startsWithString: boolean;
         startsWithString = false;
         if (stringx.length >= start.length) {
             startsWithString = SubstringEquals(stringx, 0, start);
@@ -4804,7 +4804,7 @@ namespace jsonBlocks {
 
 
     function EndsWith(stringx: string[], end: string[]): boolean {
-        var endsWithString: boolean;
+        let endsWithString: boolean;
         endsWithString = false;
         if (stringx.length >= end.length) {
             endsWithString = SubstringEquals(stringx, stringx.length - end.length, end);
@@ -4815,11 +4815,11 @@ namespace jsonBlocks {
 
 
     function SplitByString(toSplit: string[], splitBy: string[]): StringReference[] {
-        var split: StringReference[];
-        var next: string[];
-        var i: number;
-        var c: string;
-        var n: StringReference;
+        let split: StringReference[];
+        let next: string[];
+        let i: number;
+        let c: string;
+        let n: StringReference;
         split = [];
 
         next = [];
@@ -4850,8 +4850,8 @@ namespace jsonBlocks {
 
 
     function lAddNumber(list: number[], a: number): number[] {
-        var newlist: number[];
-        var i: number;
+        let newlist: number[];
+        let i: number;
         newlist = [];
         for (i = 0; i < list.length; i = i + 1) {
             newlist[i] = list[i];
@@ -4870,8 +4870,8 @@ namespace jsonBlocks {
 
 
     function lRemoveNumber(list: number[], n: number): number[] {
-        var newlist: number[];
-        var i: number;
+        let newlist: number[];
+        let i: number;
         newlist = [];
 
         for (i = 0; i < list.length; i = i + 1) {
@@ -4900,8 +4900,8 @@ namespace jsonBlocks {
 
 
     function lAddString(list: StringReference[], a: StringReference): StringReference[] {
-        var newlist: StringReference[];
-        var i: number;
+        let newlist: StringReference[];
+        let i: number;
         newlist = [];
 
         for (i = 0; i < list.length; i = i + 1) {
@@ -4921,8 +4921,8 @@ namespace jsonBlocks {
 
 
     function lRemoveString(list: StringReference[], n: number): StringReference[] {
-        var newlist: StringReference[];
-        var i: number;
+        let newlist: StringReference[];
+        let i: number;
         newlist = [];
 
         for (i = 0; i < list.length; i = i + 1) {
@@ -4951,8 +4951,8 @@ namespace jsonBlocks {
 
 
     function lAddBoolean(list: boolean[], a: boolean): boolean[] {
-        var newlist: boolean[];
-        var i: number;
+        let newlist: boolean[];
+        let i: number;
         newlist = [];
         for (i = 0; i < list.length; i = i + 1) {
             newlist[i] = list[i];
@@ -4971,8 +4971,8 @@ namespace jsonBlocks {
 
 
     function lRemoveBoolean(list: boolean[], n: number): boolean[] {
-        var newlist: boolean[];
-        var i: number;
+        let newlist: boolean[];
+        let i: number;
         newlist = [];
 
         for (i = 0; i < list.length; i = i + 1) {
@@ -5001,8 +5001,8 @@ namespace jsonBlocks {
 
 
     function lAddCharacter(list: string[], a: string): string[] {
-        var newlist: string[];
-        var i: number;
+        let newlist: string[];
+        let i: number;
         newlist = [];
         for (i = 0; i < list.length; i = i + 1) {
             newlist[i] = list[i];
@@ -5021,8 +5021,8 @@ namespace jsonBlocks {
 
 
     function lRemoveCharacter(list: string[], n: number): string[] {
-        var newlist: string[];
-        var i: number;
+        let newlist: string[];
+        let i: number;
         newlist = [];
 
         for (i = 0; i < list.length; i = i + 1) {
@@ -5051,8 +5051,8 @@ namespace jsonBlocks {
 
 
     function arraysStringToNumberArray(stringx: string[]): number[] {
-        var i: number;
-        var array: number[];
+        let i: number;
+        let array: number[];
         array = [];
 
         for (i = 0; i < stringx.length; i = i + 1) {
@@ -5063,8 +5063,8 @@ namespace jsonBlocks {
 
 
     function arraysNumberArrayToString(array: number[]): string[] {
-        var i: number;
-        var stringx: string[];
+        let i: number;
+        let stringx: string[];
         stringx = [];
 
         for (i = 0; i < array.length; i = i + 1) {
@@ -5075,8 +5075,8 @@ namespace jsonBlocks {
 
 
     function arraysNumberArraysEqual(a: number[], b: number[]): boolean {
-        var equal: boolean;
-        var i: number;
+        let equal: boolean;
+        let i: number;
         equal = true;
         if (a.length == b.length) {
             for (i = 0; i < a.length && equal; i = i + 1) {
@@ -5093,8 +5093,8 @@ namespace jsonBlocks {
 
 
     function arraysBooleanArraysEqual(a: boolean[], b: boolean[]): boolean {
-        var equal: boolean;
-        var i: number;
+        let equal: boolean;
+        let i: number;
         equal = true;
         if (a.length == b.length) {
             for (i = 0; i < a.length && equal; i = i + 1) {
@@ -5111,8 +5111,8 @@ namespace jsonBlocks {
 
 
     function arraysStringsEqual(a: string[], b: string[]): boolean {
-        var equal: boolean;
-        var i: number;
+        let equal: boolean;
+        let i: number;
         equal = true;
         if (a.length == b.length) {
             for (i = 0; i < a.length && equal; i = i + 1) {
@@ -5129,7 +5129,7 @@ namespace jsonBlocks {
 
 
     function arraysFillNumberArray(a: number[], value: number): void {
-        var i: number;
+        let i: number;
         for (i = 0; i < a.length; i = i + 1) {
             a[i] = value;
         }
@@ -5137,7 +5137,7 @@ namespace jsonBlocks {
 
 
     function arraysFillString(a: string[], value: string): void {
-        var i: number;
+        let i: number;
         for (i = 0; i < a.length; i = i + 1) {
             a[i] = value;
         }
@@ -5145,7 +5145,7 @@ namespace jsonBlocks {
 
 
     function arraysFillBooleanArray(a: boolean[], value: boolean): void {
-        var i: number;
+        let i: number;
         for (i = 0; i < a.length; i = i + 1) {
             a[i] = value;
         }
@@ -5153,8 +5153,8 @@ namespace jsonBlocks {
 
 
     function arraysFillNumberArrayInterval(a: number[], value: number, fromx: number, to: number): boolean {
-        var i: number;
-        var success: boolean;
+        let i: number;
+        let success: boolean;
         if (fromx >= 0 && fromx < a.length && to >= 0 && to < a.length) {
             for (i = fromx; i < to; i = i + 1) {
                 a[i] = value;
@@ -5169,8 +5169,8 @@ namespace jsonBlocks {
 
 
     function arraysFillBooleanArrayInterval(a: boolean[], value: boolean, fromx: number, to: number): boolean {
-        var i: number;
-        var success: boolean;
+        let i: number;
+        let success: boolean;
         if (fromx >= 0 && fromx < a.length && to >= 0 && to < a.length) {
             for (i = Math.max(fromx, 0); i < Math.min(to, a.length); i = i + 1) {
                 a[i] = value;
@@ -5185,8 +5185,8 @@ namespace jsonBlocks {
 
 
     function arraysFillStringInterval(a: string[], value: string, fromx: number, to: number): boolean {
-        var i: number;
-        var success: boolean;
+        let i: number;
+        let success: boolean;
         if (fromx >= 0 && fromx < a.length && to >= 0 && to < a.length) {
             for (i = Math.max(fromx, 0); i < Math.min(to, a.length); i = i + 1) {
                 a[i] = value;
@@ -5201,8 +5201,8 @@ namespace jsonBlocks {
 
 
     function arraysCopyNumberArray(a: number[]): number[] {
-        var i: number;
-        var n: number[];
+        let i: number;
+        let n: number[];
         n = [];
 
         for (i = 0; i < a.length; i = i + 1) {
@@ -5214,8 +5214,8 @@ namespace jsonBlocks {
 
 
     function arraysCopyBooleanArray(a: boolean[]): boolean[] {
-        var i: number;
-        var n: boolean[];
+        let i: number;
+        let n: boolean[];
         n = [];
 
         for (i = 0; i < a.length; i = i + 1) {
@@ -5227,8 +5227,8 @@ namespace jsonBlocks {
 
 
     function arraysCopyString(a: string[]): string[] {
-        var i: number;
-        var n: string[];
+        let i: number;
+        let n: string[];
         n = [];
 
         for (i = 0; i < a.length; i = i + 1) {
@@ -5240,9 +5240,9 @@ namespace jsonBlocks {
 
 
     function arraysCopyNumberArrayRange(a: number[], fromx: number, to: number, copyReference: NumberArrayReference): boolean {
-        var i: number, length: number;
-        var n: number[];
-        var success: boolean;
+        let i: number, length: number;
+        let n: number[];
+        let success: boolean;
         if (fromx >= 0 && fromx < a.length && to >= 0 && to < a.length && fromx <= to) {
             length = to - fromx;
             n = [];
@@ -5260,9 +5260,9 @@ namespace jsonBlocks {
 
 
     function arraysCopyBooleanArrayRange(a: boolean[], fromx: number, to: number, copyReference: BooleanArrayReference): boolean {
-        var i: number, length: number;
-        var n: boolean[];
-        var success: boolean;
+        let i: number, length: number;
+        let n: boolean[];
+        let success: boolean;
         if (fromx >= 0 && fromx < a.length && to >= 0 && to < a.length && fromx <= to) {
             length = to - fromx;
             n = [];
@@ -5280,9 +5280,9 @@ namespace jsonBlocks {
 
 
     function arraysCopyStringRange(a: string[], fromx: number, to: number, copyReference: StringReference): boolean {
-        var i: number, length: number;
-        var n: string[];
-        var success: boolean;
+        let i: number, length: number;
+        let n: string[];
+        let success: boolean;
         if (fromx >= 0 && fromx < a.length && to >= 0 && to < a.length && fromx <= to) {
             length = to - fromx;
             n = [];
@@ -5305,7 +5305,7 @@ namespace jsonBlocks {
 
 
     function arraysCreateNumberArray(length: number, value: number): number[] {
-        var array: number[];
+        let array: number[];
         array = [];
         arraysFillNumberArray(array, value);
 
@@ -5314,7 +5314,7 @@ namespace jsonBlocks {
 
 
     function arraysCreateBooleanArray(length: number, value: boolean): boolean[] {
-        var array: boolean[];
+        let array: boolean[];
         array = [];
         arraysFillBooleanArray(array, value);
 
@@ -5323,7 +5323,7 @@ namespace jsonBlocks {
 
 
     function arraysCreateString(length: number, value: string): string[] {
-        var array: string[];
+        let array: string[];
         array = [];
         arraysFillString(array, value);
 
@@ -5332,7 +5332,7 @@ namespace jsonBlocks {
 
 
     function cToLowerCase(character: string): string {
-        var toReturn: string;
+        let toReturn: string;
         toReturn = character;
         if (character == 'A') {
             toReturn = 'a';
@@ -5393,7 +5393,7 @@ namespace jsonBlocks {
 
 
     function cToUpperCase(character: string): string {
-        var toReturn: string;
+        let toReturn: string;
         toReturn = character;
         if (character == 'a') {
             toReturn = 'A';
@@ -5454,7 +5454,7 @@ namespace jsonBlocks {
 
 
     function cIsUpperCase(character: string): boolean {
-        var isUpper: boolean;
+        let isUpper: boolean;
         isUpper = false;
         if (character == 'A') {
             isUpper = true;
@@ -5515,7 +5515,7 @@ namespace jsonBlocks {
 
 
     function cIsLowerCase(character: string): boolean {
-        var isLower: boolean;
+        let isLower: boolean;
         isLower = false;
         if (character == 'a') {
             isLower = true;
@@ -5581,7 +5581,7 @@ namespace jsonBlocks {
 
 
     function cIsNumber(character: string): boolean {
-        var isNumber: boolean;
+        let isNumber: boolean;
         isNumber = false;
         if (character == '0') {
             isNumber = true;
@@ -5610,7 +5610,7 @@ namespace jsonBlocks {
 
 
     function cIsWhiteSpace(character: string): boolean {
-        var isWhiteSpace: boolean;
+        let isWhiteSpace: boolean;
         isWhiteSpace = false;
         if (character == ' ') {
             isWhiteSpace = true;
@@ -5627,7 +5627,7 @@ namespace jsonBlocks {
 
 
     function cIsSymbol(character: string): boolean {
-        var isSymbol: boolean;
+        let isSymbol: boolean;
         isSymbol = false;
         if (character == '!') {
             isSymbol = true;
