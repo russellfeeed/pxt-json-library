@@ -2244,7 +2244,7 @@ namespace jsonBlocks {
 
 
     function FreeBooleanArrayReference(booleanArrayReference: BooleanArrayReference): void {
-        delete booleanArrayReference.booleanArray;
+        //delete booleanArrayReference.booleanArray;
         booleanArrayReference = undefined;
     }
 
@@ -2291,7 +2291,7 @@ namespace jsonBlocks {
 
 
     function FreeNumberArrayReference(numberArrayReference: NumberArrayReference): void {
-        delete numberArrayReference.numberArray;
+        //delete numberArrayReference.numberArray;
         numberArrayReference = undefined;
     }
 
@@ -2320,7 +2320,7 @@ namespace jsonBlocks {
 
 
     function FreeStringReference(stringReference: StringReference): void {
-        delete stringReference.stringx;
+        //delete stringReference.stringx;
         stringReference = undefined;
     }
 
@@ -2351,9 +2351,9 @@ namespace jsonBlocks {
     function FreeStringArrayReference(stringArrayReference: StringArrayReference): void {
         let i: number;
         for (i = 0; i < stringArrayReference.stringArray.length; i = i + 1) {
-            delete stringArrayReference.stringArray[i];
+            //delete stringArrayReference.stringArray[i];
         }
-        delete stringArrayReference.stringArray;
+        //delete stringArrayReference.stringArray;
         stringArrayReference = undefined;
     }
 
