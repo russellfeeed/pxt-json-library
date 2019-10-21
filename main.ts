@@ -9,7 +9,7 @@ namespace jsonBlocks {
     class ElementArrayReference {
         array: Elementx[];
     }
-    class Elementx {
+    export class Elementx {
         typex: ElementType;
         object: StringElementMap;
         array: Elementx[];
@@ -73,7 +73,7 @@ namespace jsonBlocks {
         stringx: string[];
     }
 
-    //% block
+    //% block="json %json|err %errorMessage"
     export function IsValidJSON(json: string[], errorMessage: StringArrayReference): boolean {
         let success: boolean;
         let elementReference: ElementReference;
@@ -978,8 +978,8 @@ namespace jsonBlocks {
         }
     }
 
-    //% block
-    export function WriteJSON(element: Elementx): string[] {
+    //% block="write json $element"
+    function WriteJSON(element: Elementx): string[] {
         let result: string[];
         let length: number;
         let index: NumberReference;
