@@ -73,7 +73,7 @@ namespace jsonBlocks {
         stringx: string[];
     }
 
-    //% block="json %json|err %errorMessage"
+    //% block="Is Valid JSON $json|$errorMessage"
     export function IsValidJSON(json: string[], errorMessage: StringArrayReference): boolean {
         let success: boolean;
         let elementReference: ElementReference;
