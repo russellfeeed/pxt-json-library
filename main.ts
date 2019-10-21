@@ -6,7 +6,7 @@
 //% color=190 weight=100 icon="\uf5fc" block="JSON Blocks"
 namespace jsonBlocks {
 
-    class ElementArrayReference {
+    export class ElementArrayReference {
         array: Elementx[];
     }
     export class Elementx {
@@ -20,7 +20,7 @@ namespace jsonBlocks {
     class ElementReference {
         element: Elementx;
     }
-    class ElementType {
+    export class ElementType {
         name: string[];
     }
     class Token {
@@ -36,7 +36,7 @@ namespace jsonBlocks {
     class TokenArrayReference {
         array: Token[];
     }
-    class StringElementMap {
+    export class StringElementMap {
         stringListRef: StringArrayReference;
         elementListRef: ElementArrayReference;
     }
@@ -66,10 +66,10 @@ namespace jsonBlocks {
     class NumberReference {
         numberValue: number;
     }
-    class StringArrayReference {
+    export class StringArrayReference {
         stringArray: StringReference[];
     }
-    class StringReference {
+    export class StringReference {
         stringx: string[];
     }
 
@@ -978,7 +978,7 @@ namespace jsonBlocks {
         }
     }
 
-    //% block="write json $element"
+    //% block
     function WriteJSON(element: Elementx): string[] {
         let result: string[];
         let length: number;
